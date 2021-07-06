@@ -1,0 +1,30 @@
+{
+	"name": "@configura/babylon-view",
+	"version": "0.2.0",
+	"license": "Apache-2.0",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"scripts": {
+		"build": "del-cli ./dist && tsc",
+		"eslint": "eslint --fix \"src/**\"",
+		"eslint-ci": "eslint --max-warnings=0 \"src/**\"",
+		"pack": "yarn pack --filename ../../release/v0.0.16/configura-babylon-view.tgz",
+		"prepublishOnly": "yarn run build",
+		"start": "tsc --watch --preserveWatchOutput",
+		"test": "echo \"Error: run tests from root\" && exit 1"
+	},
+	"dependencies": {
+		"@babylonjs/core": "^4.1.0",
+		"@configura/web-core": "^0.2.0",
+		"@configura/web-utilities": "^0.2.0"
+	},
+	"devDependencies": {
+		"@configura/web-api": "^0.2.0",
+		"del-cli": "^3.0.0",
+		"typescript": "^3.9.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

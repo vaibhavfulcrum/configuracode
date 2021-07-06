@@ -1,0 +1,98 @@
+/**
+ * Web UI Loading
+ */
+
+@use "mixins";
+
+@mixin classes(
+	$textColor,
+	$spinnerColor1,
+	$spinnerColor2,
+	$overlayBackgroundColor,
+	$overlayingZIndex
+) {
+	.cfgCenteredLoading {
+		@include mixins.cfgRootStyles;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.cfgOverlayLoading {
+		@include mixins.cfgRootStyles;
+
+		align-items: center;
+		background-color: $overlayBackgroundColor;
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: $overlayingZIndex;
+
+		&--clickThrough {
+			background-color: transparent;
+			pointer-events: none;
+
+			.cfgLoadingWithText {
+				padding: 2em 2em 1.8em;
+				border-radius: 0.8em;
+				background-color: $overlayBackgroundColor;
+				opacity: 0.8;
+				border: 0.1em solid $spinnerColor2;
+			}
+		}
+
+		&--fullWindow {
+			position: fixed;
+			z-index: #{$overlayingZIndex + 1};
+		}
+	}
+
+	.cfgLoadingWithText {
+		@include mixins.cfgRootStyles;
+		@include mixins.cfgDefaultFont;
+
+		text-align: center;
+
+		&__text {
+			color: $textColor;
+			font-weight: 600;
+			margin-top: 0.5em;
+			font-size: 1.6em;
+		}
+	}
+
+	.cfgLoading {
+		@include mixins.cfgRootStyles;
+
+		animation: rotate 1.1s linear 0s infinite;
+		border-radius: 100%;
+		border: 0.5em solid $spinnerColor2;
+		border-bottom-color: $spinnerColor1;
+		display: inline-block;
+		height: 3em;
+		width: 3em;
+
+		&--small {
+			border-width: 0.4em;
+			height: 2em;
+			width: 2em;
+		}
+	}
+
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+}

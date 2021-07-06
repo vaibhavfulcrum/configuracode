@@ -1,0 +1,232 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+	--ifm-color-primary: #eb5d40;
+	--ifm-color-primary-dark: #e84625;
+	--ifm-color-primary-darker: #e63b18;
+	--ifm-color-primary-darkest: #bd3114;
+	--ifm-color-primary-light: #ee745b;
+	--ifm-color-primary-lighter: #ef7f69;
+	--ifm-color-primary-lightest: #f4a291;
+	--ifm-code-font-size: 95%;
+
+	--cfg-color-purple: hsl(232, 51%, 36%);
+	--cfg-color-opblock-get: rgba(97, 175, 254, 0.1);
+	--cfg-color-opblock-post: rgba(97, 175, 254, 0.1);
+}
+
+html[data-theme="dark"] {
+	--cfg-color-purple: hsl(221, 78%, 86%);
+	--cfg-color-opblock-get: rgba(97, 175, 254, 0.05);
+	--cfg-color-opblock-post: rgba(97, 175, 254, 0.05);
+}
+
+.docusaurus-highlight-code-line {
+	background-color: rgb(72, 77, 91);
+	display: block;
+	margin: 0 calc(-1 * var(--ifm-pre-padding));
+	padding: 0 var(--ifm-pre-padding);
+}
+
+.navbar__logo {
+	height: 1.5rem;
+}
+
+/**
+* Custom styles to make Swagger UI work with dark / light mode
+* and other quirks
+*/
+
+.document-swagger {
+	@media only screen and (min-width: 997px) {
+		.docItemCol__-_-node_modules-\@docusaurus-theme-classic-src-theme-DocItem- {
+			flex: 1 0 auto;
+			max-width: 100% !important;
+			width: 100%;
+		}
+	}
+}
+
+html[data-theme="dark"] #__docusaurus .swagger-ui {
+	--ifm-global-shadow-lw: 0 1px 2px 0 rgba(255, 255, 255, 0.1);
+
+	.model-toggle:after {
+		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg fill='white' xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E");
+	}
+
+	select {
+		color: var(--ifm-heading-color);
+		background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSd3aGl0ZScgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjAgMjAiPjxwYXRoIGQ9Ik0xMy40MTggNy44NTlhLjY5NS42OTUgMCAwMS45NzggMCAuNjguNjggMCAwMTAgLjk2OWwtMy45MDggMy44M2EuNjk3LjY5NyAwIDAxLS45NzkgMGwtMy45MDgtMy44M2EuNjguNjggMCAwMTAtLjk2OS42OTUuNjk1IDAgMDEuOTc4IDBMMTAgMTFsMy40MTgtMy4xNDF6Ii8+PC9zdmc+");
+	}
+}
+
+#__docusaurus .swagger-ui {
+	color: var(--ifm-font-color-base);
+
+	.opblock.opblock-get {
+		background-color: var(--cfg-color-opblock-get);
+	}
+
+	.opblock.opblock-post {
+		background-color: var(--cfg-color-opblock-post);
+	}
+
+	section.models,
+	section.models.is-open h4,
+	.opblock-tag,
+	select {
+		border-color: var(--ifm-color-emphasis-400);
+	}
+
+	.dialog-ux .modal-ux-header,
+	.dialog-ux .modal-ux {
+		border-color: var(--ifm-color-emphasis-200);
+	}
+
+	section.models h4,
+	.model-title,
+	.dialog-ux .modal-ux-content h4,
+	.dialog-ux .modal-ux-content p,
+	label,
+	.opblock .opblock-summary-operation-id,
+	.opblock .opblock-summary-path,
+	.opblock .opblock-summary-path__deprecated,
+	.opblock .opblock-summary-description,
+	.opblock .opblock-section-header h4,
+	table thead tr td,
+	table thead tr th,
+	.parameter__name,
+	.parameter__type,
+	.response-col_status {
+		color: var(--ifm-color-emphasis-800);
+	}
+
+	.info .title,
+	.opblock-tag,
+	.info .title small pre,
+	.info .base-url,
+	.scheme-container .schemes > label,
+	.info p,
+	.dialog-ux .modal-ux-header h3,
+	.model {
+		color: var(--ifm-heading-color);
+	}
+
+	.tab li {
+		margin-top: 0;
+	}
+
+	.btn {
+		box-shadow: none;
+		color: var(--ifm-color-emphasis-900);
+		border-color: var(--ifm-color-emphasis-400);
+	}
+
+	svg.arrow,
+	.models svg,
+	.dialog-ux .modal-ux-header .close-modal svg,
+	.authorization__btn.unlocked svg {
+		fill: var(--ifm-color-emphasis-1000);
+	}
+
+	input[type="email"],
+	input[type="file"],
+	input[type="password"],
+	input[type="search"],
+	input[type="text"],
+	textarea {
+		color: var(--ifm-color-emphasis-900);
+		border-color: var(--ifm-color-emphasis-400);
+		background-color: var(--ifm-code-background);
+	}
+
+	input::placeholder {
+		color: var(--ifm-color-emphasis-700);
+	}
+
+	input[disabled],
+	select[disabled],
+	textarea[disabled] {
+		border-color: var(--ifm-color-emphasis-400);
+		background-color: var(--ifm-color-emphasis-100);
+	}
+
+	.btn.authorize {
+		color: var(--ifm-link-color);
+		border-color: var(--ifm-link-color);
+	}
+
+	.btn.authorize svg {
+		fill: var(--ifm-link-color);
+	}
+
+	.scheme-container {
+		background: transparent;
+		box-shadow: none;
+		border-bottom: 1px solid var(--ifm-color-emphasis-400);
+	}
+
+	.dialog-ux .modal-ux {
+		background-color: var(--ifm-background-surface-color);
+	}
+
+	.prop-type {
+		color: var(--cfg-color-purple);
+	}
+
+	.info .title small {
+		background-color: var(--ifm-color-secondary);
+		color: var(--ifm-color-black);
+	}
+
+	.info .base-url,
+	section.models .model-container {
+		background-color: var(--ifm-menu-color-background-active);
+	}
+
+	select,
+	.opblock .opblock-section-header {
+		box-shadow: none;
+		background-color: var(--ifm-color-emphasis-0);
+	}
+
+	table {
+		overflow: initial;
+	}
+
+	table tr:nth-child(2n) {
+		background-color: transparent;
+	}
+
+	table td,
+	table tr,
+	table thead tr td,
+	table thead tr th {
+		border: 0;
+	}
+
+	table.parameters thead tr th,
+	table.responses-table thead tr td {
+		border-bottom: 1px solid var(--ifm-color-emphasis-400);
+	}
+
+	.info .title small pre {
+		background-color: transparent;
+	}
+
+	pre.microlight code {
+		color: #fff;
+	}
+
+	.try-out {
+		display: none;
+	}
+}
+
+@import "../flowchart/flowchart";

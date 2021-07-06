@@ -1,0 +1,46 @@
+{
+	"name": "@configura/debug-react",
+	"version": "0.2.0",
+	"license": "Apache-2.0",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"scripts": {
+		"build": "del-cli ./dist && npm-run-all --parallel build-*",
+		"build-css": "postcss src/scss/debug.scss --o dist/css/debug.css",
+		"build-ts": "tsc",
+		"eslint": "eslint --fix \"src/**\" --ignore-pattern \"**/*.scss\"",
+		"eslint-ci": "eslint --max-warnings=0 \"src/**\" --ignore-pattern \"**/*.scss\"",
+		"pack": "yarn pack --filename ../../release/v0.0.16/configura-debug-react.tgz",
+		"prepublishOnly": "yarn run build",
+		"start": "npm-run-all --parallel start-*",
+		"start-css": "postcss src/scss/debug.scss --watch --o dist/css/debug.css",
+		"start-ts": "tsc --watch --preserveWatchOutput",
+		"test": "echo \"Error: run tests from root\" && exit 1"
+	},
+	"dependencies": {
+		"@configura/babylon-view": "^0.2.0",
+		"@configura/babylon-view-react": "^0.2.0",
+		"@configura/web-ui": "^0.2.0",
+		"@configura/web-utilities": "^0.2.0",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"react-router-dom": "^5.1.2"
+	},
+	"devDependencies": {
+		"@csstools/postcss-sass": "^4.0.0",
+		"@types/react": "^16.9.13",
+		"@types/react-dom": "^16.9.4",
+		"autoprefixer": "^9.7.2",
+		"cssnano": "^4.1.10",
+		"del-cli": "^3.0.0",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^7.0.23",
+		"postcss-cli": "^7.1.1",
+		"postcss-scss": "^2.0.0",
+		"typescript": "^3.9.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

@@ -1,0 +1,32 @@
+@import "exerciser";
+
+.cfgFontSize10 {
+	font-size: 10px;
+}
+
+.cfgDebugLog {
+	font-size: 1.5em;
+	margin: 1em 0;
+
+	&__list {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	&__item {
+		padding: 1em;
+
+		&--severityLog,
+		&--severityInfo {
+			background-color: #3333ff;
+			color: #fff;
+		}
+		&--severityWarn {
+			background-color: #ffdd00;
+		}
+		&--severityError {
+			background-color: #cc0000;
+			color: #fff;
+		}
+	}
+}

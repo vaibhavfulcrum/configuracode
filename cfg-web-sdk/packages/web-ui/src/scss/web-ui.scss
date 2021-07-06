@@ -1,0 +1,11 @@
+/**
+* Web UI Styling
+*/
+
+@use "themed";
+
+@include themed.themed(themed.$lightTheme);
+
+.cfgDarkTheme {
+	@include themed.themed(themed.$darkTheme);
+}

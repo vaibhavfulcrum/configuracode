@@ -1,0 +1,18 @@
+{
+	"private": true,
+	"name": "@configura/web-api-auth",
+	"version": "0.0.15",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"scripts": {
+		"build": "rm -rf ./dist && tsc",
+		"pack": "yarn pack --filename ../../release/v0.0.15/configura-web-api-auth.tgz",
+		"start": "tsc --watch --preserveWatchOutput",
+		"test": "echo \"Error: run tests from root\" && exit 1",
+		"eslint": "eslint \"src/**\""
+	},
+	"devDependencies": {
+		"@types/node": "^12.12.14",
+		"typescript": "~3.6.0"
+	}
+}

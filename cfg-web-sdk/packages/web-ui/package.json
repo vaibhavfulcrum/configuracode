@@ -1,0 +1,58 @@
+{
+	"name": "@configura/web-ui",
+	"version": "0.2.0",
+	"license": "Apache-2.0",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"scripts": {
+		"build": "del-cli ./dist && npm-run-all build-*",
+		"build-css": "postcss src/scss/web-ui.scss --o dist/css/web-ui.css",
+		"build-ts": "tsc",
+		"build-dist-scss": "ncp src/scss  dist/scss",
+		"eslint": "eslint --fix \"src/**\" --ignore-pattern \"**/*.scss\"",
+		"eslint-ci": "eslint --max-warnings=0 \"src/**\" --ignore-pattern \"**/*.scss\"",
+		"pack": "yarn pack --filename ../../release/v0.0.16/configura-web-ui.tgz",
+		"prepublishOnly": "yarn run build",
+		"start": "npm-run-all --parallel start-*",
+		"start-css": "postcss src/scss/web-ui.scss --watch --o dist/css/web-ui.css",
+		"start-ts": "tsc --watch --preserveWatchOutput",
+		"test": "echo \"Error: run tests from root\" && exit 1"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"dependencies": {
+		"@configura/web-api": "^0.2.0"
+	},
+	"devDependencies": {
+		"@csstools/postcss-sass": "^4.0.0",
+		"@types/react": "^16.9.13",
+		"@types/react-dom": "^16.9.4",
+		"@types/uuid": "^3.4.6",
+		"autoprefixer": "^9.7.2",
+		"cssnano": "^4.1.10",
+		"del-cli": "^3.0.0",
+		"ncp": "^2.0.0",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^7.0.23",
+		"postcss-cli": "^7.1.1",
+		"postcss-scss": "^2.0.0",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"typescript": "^3.9.0",
+		"uuid": "^3.3.3"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

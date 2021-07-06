@@ -1,0 +1,28 @@
+{
+	"name": "@configura/internal",
+	"version": "0.2.0",
+	"license": "Apache-2.0",
+	"type": "module",
+	"module": "web_core_internal.js",
+	"types": "web_core_internal.d.ts",
+	"files": [
+		"web_core_internal_bg.wasm.d.ts",
+		"web_core_internal_bg.wasm",
+		"web_core_internal_bg.js",
+		"web_core_internal_bg.d.ts",
+		"web_core_internal.js",
+		"web_core_internal.d.ts"
+	],
+	"scripts": {
+		"pack": "yarn pack --filename ../../release/v0.0.16/configura-internal.tgz"
+	},
+	"dependencies": {
+		"text-encoding": "^0.7.0"
+	},
+	"devDependencies": {
+		"del-cli": "^3.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

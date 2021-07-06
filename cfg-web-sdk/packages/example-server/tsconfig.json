@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"jsx": "react",
+		"types": ["node"],
+		"esModuleInterop": true
+	}
+}

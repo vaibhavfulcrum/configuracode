@@ -1,0 +1,21 @@
+.cfgOrbitalCameraControlsHeader {
+	padding-left: 0.5em;
+	padding-top: 0.5em;
+}
+
+.cfgOrbitalCameraControlsLabel {
+	margin-top: 1em;
+	padding-left: 0.5em;
+}
+
+.cfgOrbitalCameraControlsIcon {
+	width: 2em;
+	text-align: center;
+}
+
+.cfgOrbitalCameraControlSliderContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	width: 100%;
+}

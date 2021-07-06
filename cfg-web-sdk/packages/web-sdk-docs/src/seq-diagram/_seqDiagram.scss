@@ -1,0 +1,48 @@
+.seqIcon {
+	background-color: #eee;
+	border-radius: 50%;
+	height: 5rem;
+	width: 5rem;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.seqIcon--sm {
+	height: 2rem;
+	width: 2rem;
+}
+
+.seqIcon--green {
+	background-color: #51ca58;
+}
+
+.seqIcon--red {
+	background-color: #e12d39;
+}
+
+.seqIcon__svg {
+	height: 2rem;
+	width: auto;
+}
+
+.seqIcon__svg--sm {
+	height: 1.5rem;
+}
+
+.seq-diagram-wrapper {
+	margin-top: 2rem;
+	text-align: center;
+
+	.legend {
+		position: relative;
+		display: flex;
+		justify-content: space-around;
+		margin-top: 2rem;
+
+		.legend-item {
+			flex: 1 1 auto;
+		}
+	}
+}

@@ -1,0 +1,62 @@
+@use "../mixins";
+
+@mixin classes($activeColor, $passiveColor) {
+	.cfgChevron {
+		/* The distance-units inside the chevron are px even though everything
+		   else is relative units. The SVG has its own coordinate space. */
+
+		@include mixins.cfgRootStyles;
+
+		display: inline-block;
+		width: 100%;
+
+		&__container {
+			transition: transform 0.4s;
+
+			&--down {
+				transform: translateY(13px);
+			}
+
+			&--up {
+				transform: translateY(-13px);
+			}
+		}
+
+		&__line {
+			stroke-linecap: round;
+			stroke-width: 10;
+			transform-origin: 50px 50px;
+			transition: transform 0.4s, stroke 0.4s;
+		}
+
+		&__lineLeft,
+		&__lineRight {
+			&--active {
+				stroke: $activeColor;
+			}
+			&--passive {
+				stroke: $passiveColor;
+			}
+		}
+
+		&__lineLeft {
+			&--down {
+				transform: rotate(40deg);
+			}
+			&--up {
+				transform: rotate(-40deg);
+			}
+		}
+		&__lineRight {
+			&--down {
+				transform: rotate(-40deg);
+			}
+
+			&--up {
+				transform: rotate(40deg);
+			}
+		}
+
+		@content;
+	}
+}

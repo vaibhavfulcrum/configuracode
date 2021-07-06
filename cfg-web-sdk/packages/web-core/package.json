@@ -1,0 +1,30 @@
+{
+	"name": "@configura/web-core",
+	"version": "0.2.0",
+	"license": "Apache-2.0",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"scripts": {
+		"build": "del-cli ./dist && tsc",
+		"eslint": "eslint --fix \"src/**\"",
+		"eslint-ci": "eslint --max-warnings=0 \"src/**\"",
+		"pack": "yarn pack --filename ../../release/v0.0.16/configura-web-core.tgz",
+		"prepublishOnly": "yarn run build",
+		"start": "tsc --watch --preserveWatchOutput",
+		"test": "echo \"Error: run tests from root\" && exit 1"
+	},
+	"dependencies": {
+		"@configura/internal": "^0.2.0",
+		"@configura/web-utilities": "^0.2.0"
+	},
+	"devDependencies": {
+		"@types/uuid": "^3.4.6",
+		"del-cli": "^3.0.0",
+		"typescript": "^3.9.0",
+		"uuid": "^3.3.3"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

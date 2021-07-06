@@ -1,0 +1,118 @@
+@use "sass:map";
+@use "sass:color";
+
+@use "variables" as v;
+
+// Components
+@use "button";
+
+@use "configurator";
+@use "expandable";
+@use "hr";
+@use "feature-item";
+@use "option-tree";
+@use "product-information";
+@use "loading";
+@use "slider";
+
+// Icons
+@use "icons/checkmark";
+@use "icons/chevron";
+
+// Utilities
+@use "utilities";
+
+/* Colors */
+
+$black: hsl(0, 0, 0) !default;
+$white: hsl(0, 0, 100%) !default;
+$darkGrey: hsl(0, 0%, 15%) !default;
+
+/* Specific colors */
+
+$border: hsl(252, 5%, 79%) !default;
+$borderDark: hsl(0, 0%, 73%) !default;
+$grayText: hsl(0, 0%, 20%) !default;
+$text: hsl(0, 0%, 13%) !default;
+$sliderTrack: #666 !default;
+$spinner2: hsla(0, 0, 0, 0.15);
+
+/* As convention we assume the default theme when naming colors,
+   as attempts at generic naming often leads to confussion */
+$lightTheme: (
+	"black": $black,
+	"white": $white,
+	"chevronActive": $black,
+	"chevronPassive": $borderDark,
+	"focusOutlineInner": $white,
+	"focusOutlineOuter": $text,
+	"checkButtonUnchecked": $border,
+	"checkButtonChecked": $black,
+	"divider": $border,
+	"border": $border,
+	"spinner1": $black,
+	"spinner2": $spinner2,
+	"overlayBackground": $white,
+	"borderDark": $borderDark,
+	"text": $grayText,
+	"sliderTrack": $sliderTrack,
+	"sliderThumb": $white,
+	"sliderThumbShadow": $sliderTrack,
+) !default;
+
+@function invertLightness($color) {
+	@return color.change(
+		$color,
+		$lightness: 100 - color.lightness($color) * 0.8
+	); // We scale with 80% to have a bit more contrast
+}
+
+@function invertLightnessList($list) {
+	@each $key, $color in $list {
+		$list: map.set($list, $key, invertLightness($color));
+	}
+	@return $list;
+}
+
+$darkTheme: invertLightnessList($lightTheme);
+
+$themes: (
+	"light": $lightTheme,
+	"dark": $darkTheme,
+);
+
+@mixin themed($ct, $baseFontSize: v.$baseFontSize, $overlayingZIndex: v.$overlayingZIndex) {
+	@include button.classes(
+		map.get($ct, "text"),
+		map.get($ct, "borderDark"),
+		map.get($ct, "focusOutlineInner"),
+		map.get($ct, "focusOutlineOuter")
+	);
+	@include configurator.classes($baseFontSize, map.get($ct, "text"), map.get($ct, "divider"));
+	@include expandable.classes;
+	@include hr.classes(map.get($ct, "divider"));
+	@include feature-item.classes(
+		map.get($ct, "text"),
+		map.get($ct, "checkButtonUnchecked"),
+		map.get($ct, "checkButtonChecked"),
+		map.get($ct, "focusOutlineInner"),
+		map.get($ct, "focusOutlineOuter")
+	);
+	@include option-tree.classes;
+	@include product-information.classes(map.get($ct, "text"));
+	@include loading.classes(
+		map.get($ct, "black"),
+		map.get($ct, "spinner1"),
+		map.get($ct, "spinner2"),
+		map.get($ct, "overlayBackground"),
+		$overlayingZIndex
+	);
+
+	@include slider.classes(
+		map.get($ct, "sliderTrack"),
+		map.get($ct, "sliderThumb"),
+		map.get($ct, "sliderThumbShadow")
+	);
+	@include checkmark.classes(map.get($ct, "checkButtonChecked"));
+	@include chevron.classes(map.get($ct, "chevronActive"), map.get($ct, "chevronPassive"));
+}

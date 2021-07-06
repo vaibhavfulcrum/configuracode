@@ -1,0 +1,217 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "start cfg-web-sdk",
+			"dependsOn": [
+				"babylon-view - start",
+				"babylon-view-react - start",
+				"babylon-view-react - start-css",
+				"debug-react - start-ts",
+				"debug-react - start-css",
+				"example-app - start",
+				"example-server - start",
+				"test-app - start",
+				"web-api - start",
+				"web-api-auth - start",
+				"web-core - start",
+				"web-sdk-docs - start",
+				"web-ui - start-ts",
+				"web-ui - start-css",
+				"web-utilities - start"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "babylon-view - start",
+			"type": "npm",
+			"script": "start",
+			"path": "packages/babylon-view/",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}/packages/babylon-view"]
+			}
+		},
+		{
+			"label": "babylon-view-react - start",
+			"type": "npm",
+			"script": "start",
+			"path": "packages/babylon-view-react/",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}/packages/babylon-view-react"]
+			}
+		},
+		{
+			"label": "babylon-view-react - start-css",
+			"type": "npm",
+			"script": "start-css",
+			"path": "packages/babylon-view-react/",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "debug-react - start-ts",
+			"type": "npm",
+			"script": "start-ts",
+			"path": "packages/debug-react/",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}/packages/debug-react"]
+			}
+		},
+		{
+			"label": "debug-react - start-css",
+			"type": "npm",
+			"script": "start-css",
+			"path": "packages/debug-react/",
+			"isBackground": true
+		},
+		{
+			"label": "example-app - start",
+			"type": "npm",
+			"script": "start",
+			"path": "packages/example-app/",
+			"isBackground": true,
+			"problemMatcher": {
+				"owner": "typescript",
+				"fileLocation": "absolute",
+				"pattern": [
+					{
+						"regexp": "^(ERROR|WARNING) in (.*)\\((\\d+,\\d+)\\):$",
+						"file": 2,
+						"location": 3,
+						"severity": 1
+					},
+					{
+						"regexp": "^(.+): (.*)$",
+						"code": 1,
+						"message": 2
+					}
+				],
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^Type checking in progress\\.\\.\\.$",
+					"endsPattern": "^Time: \\d+ms$"
+				}
+			}
+		},
+		{
+			"label": "test-app - start",
+			"type": "npm",
+			"script": "start",
+			"path": "packages/test-app/",
+			"isBackground": true,
+			"problemMatcher": {
+				"owner": "typescript",
+				"fileLocation": "absolute",
+				"pattern": [
+					{
+						"regexp": "^(ERROR|WARNING) in (.*)\\((\\d+,\\d+)\\):$",
+						"file": 2,
+						"location": 3,
+						"severity": 1
+					},
+					{
+						"regexp": "^(.+): (.*)$",
+						"code": 1,
+						"message": 2
+					}
+				],
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^Type checking in progress\\.\\.\\.$",
+					"endsPattern": "^Time: \\d+ms$"
+				}
+			}
+		},
+		{
+			"label": "example-server - start",
+			"type": "npm",
+			"script": "start",
+			"path": "packages/example-server/",
+			"problemMatcher": {
+				"base": "$tsc",
+				"fileLocation": ["relative", "${workspaceFolder}/packages/example-server"]
+			}
+		},
+		{
+			"label": "web-api - start",
+			"type": "npm",
+			"script": "start",
+			"path": "packages/web-api/",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}/packages/web-api"]
+			}
+		},
+		{
+			"label": "web-api-auth - start",
+			"type": "npm",
+			"script": "start",
+			"path": "packages/web-api-auth/",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}/packages/web-api-auth"]
+			}
+		},
+		{
+			"label": "web-core - start",
+			"type": "npm",
+			"script": "start",
+			"path": "packages/web-core/",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}/packages/web-core"]
+			}
+		},
+		{
+			"label": "web-sdk-docs - start",
+			"type": "npm",
+			"script": "start",
+			"path": "packages/web-sdk-docs/",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}/packages/web-sdk-docs"]
+			}
+		},
+		{
+			"label": "web-ui - start-ts",
+			"type": "npm",
+			"script": "start-ts",
+			"path": "packages/web-ui/",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}/packages/web-ui"]
+			}
+		},
+		{
+			"label": "web-ui - start-css",
+			"type": "npm",
+			"script": "start-css",
+			"path": "packages/web-ui/",
+			"problemMatcher": []
+		},
+		{
+			"label": "web-utilities - start",
+			"type": "npm",
+			"script": "start",
+			"path": "packages/web-utilities/",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}/packages/web-utilities"]
+			}
+		}
+	]
+}

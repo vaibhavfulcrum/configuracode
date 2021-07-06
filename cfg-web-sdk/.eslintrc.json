@@ -1,0 +1,42 @@
+{
+	"extends": ["react-app", "plugin:jsx-a11y/recommended"],
+	"plugins": ["jsx-a11y"],
+	"rules": {
+		"lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }],
+		"jsx-a11y/no-onchange": 0,
+		"no-restricted-imports": [
+			"error",
+			{
+				"paths": ["util", ".", "..", "../.."],
+				"patterns": [
+					"*/../debug",
+					"*/../debug-react",
+					"*/../example-app",
+					"*/../example-server",
+					"*/../test-app",
+					"*/../babylon-view",
+					"*/../babylon-view-react",
+					"*/../web-api",
+					"*/../web-api-auth",
+					"*/../web-sdk-docs",
+					"*/../web-core",
+					"*/../web-ui",
+					"*/../web-utilities",
+					"@configura/debug/src/*",
+					"@configura/debug-react/src/*",
+					"@configura/example-app/src/*",
+					"@configura/example-server/src/*",
+					"@configura/test-app/src/*",
+					"@configura/babylon-view/src/*",
+					"@configura/babylon-view-react/src/*",
+					"@configura/web-api/src/*",
+					"@configura/web-api-auth/src/*",
+					"@configura/web-sdk-docs/src/*",
+					"@configura/web-core/src/*",
+					"@configura/web-ui/src/*",
+					"@configura/web-utilities/src/*"
+				]
+			}
+		]
+	}
+}

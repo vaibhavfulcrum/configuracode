@@ -1,0 +1,29 @@
+/**
+ * Web UI Option tree
+ */
+
+@use "mixins";
+
+@mixin classes {
+	.cfgOptionTree {
+		@include mixins.cfgRootStyles;
+
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		&--topLevel {
+			padding-left: 1.7em;
+		}
+
+		&--indent {
+			margin-left: 3.2em;
+		}
+
+		&--compThumb {
+			margin-left: 4.2em;
+		}
+
+		@content;
+	}
+}

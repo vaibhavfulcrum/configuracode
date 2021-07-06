@@ -1,0 +1,15 @@
+node_modules
+
+packages/debug/node_modules
+packages/example-app/node_modules
+packages/example-server/node_modules
+packages/internal/node_modules
+packages/test-app/node_modules
+packages/babylon-view/node_modules
+packages/babylon-view-react/node_modules
+packages/web-api/node_modules
+packages/web-api-auth/node_modules
+packages/web-sdk-docs/node_modules
+packages/web-core/node_modules
+packages/web-ui/node_modules
+packages/web-utilities/node_modules

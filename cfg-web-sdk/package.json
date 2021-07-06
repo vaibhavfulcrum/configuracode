@@ -1,0 +1,46 @@
+{
+	"private": true,
+	"workspaces": {
+		"packages": [
+			"packages/*"
+		],
+		"nohoist": [
+			"**/html-minifier-terser"
+		]
+	},
+	"license": "Apache-2.0",
+	"devDependencies": {
+		"@babel/core": "^7.14.3",
+		"@babel/plugin-proposal-nullish-coalescing-operator": "^7.14.2",
+		"@babel/plugin-proposal-optional-chaining": "^7.14.2",
+		"@babel/plugin-syntax-dynamic-import": "^7.7.4",
+		"@babel/preset-env": "^7.14.4",
+		"@babel/preset-react": "^7.13.13",
+		"@babel/preset-typescript": "^7.13.0",
+		"@typescript-eslint/eslint-plugin": "2.x",
+		"@typescript-eslint/parser": "2.x",
+		"babel-eslint": "10.x",
+		"babel-jest": "^24.9.0",
+		"core-js": "^3.13.1",
+		"eslint": "6.x",
+		"eslint-config-react-app": "^5.0.2",
+		"eslint-plugin-flowtype": "3.x",
+		"eslint-plugin-import": "^2.23.4",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-react": "^7.24.0",
+		"eslint-plugin-react-hooks": "1.x",
+		"jest": "^24.9.0",
+		"lerna": "^3.19.0",
+		"ts-jest": "^24.2.0",
+		"typescript": "^3.9.9",
+		"webpack-cli": "^3.3.11"
+	},
+	"scripts": {
+		"test": "jest"
+	},
+	"resolutions": {
+		"history": "4.5.1",
+		"prettier": "^2.0.0"
+	},
+	"version": "1.21.1"
+}

@@ -1,0 +1,39 @@
+@use "../mixins";
+
+@mixin classes($color) {
+	.cfgCheckmark {
+		/* The distance-units inside the checkmark are px even though everything
+		   else is relative units. The SVG has its own coordinate space. */
+
+		@include mixins.cfgRootStyles;
+
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+
+		&__container {
+			transition: transform 0.4s;
+			transform: translateY(17px);
+		}
+
+		&__line {
+			stroke: $color;
+			stroke-linecap: round;
+			stroke-width: 12;
+			transform-origin: 50px 50px;
+			transition: transform 0.4s, stroke 0.4s;
+		}
+
+		&__lineLeft {
+			stroke: $color;
+			transform: rotate(40deg) translateY(24px) translateX(18px);
+		}
+
+		&__lineRight {
+			stroke: $color;
+			transform: rotate(-50deg) translateY(-2px) translateX(-3px);
+		}
+
+		@content;
+	}
+}

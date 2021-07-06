@@ -1,0 +1,34 @@
+@use "mixins";
+
+@mixin classes {
+	.cfgExpandableHeadingRow {
+		@include mixins.cfgRootStyles;
+		@include mixins.noButtonLook;
+		align-items: stretch;
+		display: flex;
+		height: 3.9em;
+		outline: 0;
+		position: relative;
+		width: 100%;
+		cursor: pointer;
+
+		&__title {
+			align-items: center;
+			display: flex;
+			flex: 1 1 auto;
+			font-size: 1.5em;
+			font-weight: 500;
+			justify-content: flex-start;
+		}
+
+		&__icon {
+			align-items: center;
+			display: flex;
+			flex: 0 0 5em;
+			justify-content: center;
+			padding: 0 1.5em;
+		}
+
+		@content;
+	}
+}

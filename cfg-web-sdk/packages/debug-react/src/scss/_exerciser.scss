@@ -1,0 +1,123 @@
+:root {
+	--cfgExerciserImageWidth: 200px;
+	--cfgExerciserLink: hsl(217, 69%, 48%);
+}
+
+.cfgExerciser {
+	overflow-wrap: anywhere;
+}
+
+.cfgExerciserColumn {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+
+.cfgExerciserRow {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.cfgExerciserLink {
+	color: var(--cfgExerciserLink);
+	text-decoration: none;
+	word-break: break-all;
+}
+
+.cfgExerciserView {
+	margin: 0 1em;
+}
+
+.cfgExerciserButton {
+	font-size: 1em;
+}
+
+.cfgExerciserControl {
+	margin: 0.5em 0;
+}
+
+.cfgExerciserControl__label {
+	display: block;
+	text-transform: capitalize;
+	font-weight: 500;
+}
+.cfgExerciserControl__select--operator {
+	margin-right: 0.5em;
+}
+
+.cfgExerciserControl__selectWrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.cfgExerciserControl__select--full {
+	flex: 1 0 auto;
+}
+
+.cfgExerciserControl__error {
+	color: crimson;
+}
+
+.cfgCanvasWrapper {
+	width: 100%;
+}
+
+.cfgExerciserReportItem {
+	border-top: 1px solid black;
+	display: flex;
+	flex-wrap: wrap;
+
+	& .cfgDebugLog {
+		font-size: 1em;
+	}
+
+	& .cfgDebugLog__item {
+		padding: 1px;
+		margin: 0.5em 0;
+	}
+}
+
+@media screen and (min-width: 62.5em) {
+	.cfgExerciserReportItem {
+		flex-wrap: nowrap;
+	}
+}
+
+.cfgExerciserReportItem__info {
+	flex: 1 1 auto;
+}
+
+.cfgExerciserReportItem__image {
+	width: var(--cfgExerciserImageWidth);
+	height: var(--cfgExerciserImageWidth);
+}
+
+.cfgExerciserReportItem__image img {
+	width: 100%;
+}
+
+.cfgExerciserFilter__logMessage {
+	display: block;
+	padding: 1px 0;
+}
+
+.cfgExerciserSetup {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.cfgExerciserSetup__select {
+	max-width: 50rem;
+}
+
+.cfgExerciserSetup__select,
+.cfgExerciserSetup__preview {
+	flex: 1 1 auto;
+}
+
+.cfgExerciserSetup__select + .cfgExerciserSetup__preview {
+	flex: 1 1 50%;
+}

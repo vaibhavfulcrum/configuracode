@@ -1,0 +1,16 @@
+@use "mixins";
+
+@mixin styles($color) {
+	@include mixins.cfgRootStyles;
+	border: 0;
+	border-bottom: 0.1em solid $color;
+	padding: 0;
+	margin: 0;
+}
+
+@mixin classes($color) {
+	.cfgHr {
+		@include styles($color);
+		@content;
+	}
+}

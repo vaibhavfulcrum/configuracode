@@ -1,0 +1,86 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+
+## [Unreleased]
+
+## [0.2.0] - 2021-02-02
+
+### Added
+- CameraReset-method
+- ProductRemoved-event
+- Possible to use non-strict PrdCatVersion urls which always use the latest PrdCatVersion available.
+- Dummy Material easier to replaced
+- Dummy Material-color configurable
+- Dark theme added
+- Built a custom checkbox to match the custom radiobutton
+- Made the SCSS copy to dist for those who want to use it that way
+- Proper SCSS for babylon-view-react
+- productConfiguration tsx-components can now be injected if certain parts need replacing
+- Styles possible to add to our custom components
+
+### Changed
+- SingleProductViewPhase enum now textual for easier debug and less clearer that events are not in strict order
+- Moved code for grouping catalogues to utilities
+- Moved notEmpty-filer to utilities
+- Catalogues in Example UI is now sorted alphabetically based on browser locale
+- Possible to access raw features on CfgProductConfiguration
+- Camera-related configuration parameters moved
+- Built a custom checkbox to match the custom radiobutton
+- Migrated from deprected import to use in SCSS
+- Rebuilt SCSS-structure for easier reuse and theming
+
+### Fixed
+- In case of ambiguous materials applications, use the first one encountered.
+- OrbitalCameraControl
+- Fixed various issues with absolute and relative sizing being mixed in SCSS
+
+## [0.1.2] - 2021-01-12
+
+### Added
+- Added allowedDetailLevels to BaseViewConfiguration to optionally control which LOD level(s) are allowed and in which order. This new option is exposed in for example BabylonView constructor.
+- Improved UI performance when selecting options in large features
+- Added Double support for DexReader
+- Use UUID as ID for input to avoid collision
+
+### Fixed
+- Fixed regression where textures rotated to non perpendicular angles rendered incorrectly.
+- Texture rotation is now properly applied for older CmSym meshes without "lowerLeftTextureOrigin".
+- Fixed a re-render issue in the example add that caused low framerate
+
+### Removed
+- forceDetailLevel has been removed and replaced by allowedDetailLevels.
+
+## [0.1.1] - 2020-11-09
+
+### Changed
+- No longer zooms in at significant size change (only zooms out).
+
+### Added
+- Significant size change is now configurable.
+- Too close limit is now configurable.
+- Auto rotate has been made available.
+- Height map to normal map conversions are now cached.
+
+## [0.1.0] - 2020-10-27
+
+### Changed
+- Three.js has been replaced with Babylon.js as the WebGL 3D rendering engine.
+- `CFG` prefix on class names has been changed to `Cfg`.
+- The `showDebug` method on `BaseView` has been renamed to `showInspector` to reflect the fact that it now shows the Babylon Inspector.
+- Changed LOD loading where Base now is the last fallback.
+- Secret Token has been renamed to AccessToken.
+- Upgraded TypeScript to 3.9.5.
+- Now uses a new OpenCTM loader written in Rust.
+
+### Added
+- New Test app containing tools for testing products and catalogues.
+- Brand new documentation that cover both the SDK, API and general explanations. This version of the documentation is hosted online for easier access but for those who prefer it, it’s still possible to start it locally.
+- CfgProductConfiguration now has the method tryMatchSelection which allows trying to copy selections from another CfgProductConfiguration without them strictly matching.
+- CfgProductConfiguration now has the method structureCompare which can be used to compare the structure of two CfgProductConfiguration.
+
+### Fixed
+- Fixed an issue where models from the API could be empty.

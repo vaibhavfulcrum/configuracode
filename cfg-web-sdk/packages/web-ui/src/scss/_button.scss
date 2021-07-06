@@ -1,0 +1,36 @@
+/**
+ * Web UI Product information
+ */
+@use "mixins";
+
+@mixin styles($textColor, $borderColor, $focusOutlineInnerColor, $focusOutlineOuterColor) {
+	@include mixins.cfgRootStyles;
+	display: inline-block;
+	background-color: transparent;
+	color: $textColor;
+	border-radius: 0.3em;
+	border: 0.1em solid $borderColor;
+	font-size: 1.3em;
+	font-weight: 500;
+	outline: none;
+	padding: 0.4em 0.8em;
+
+	&:focus {
+		@include mixins.focusOutline($focusOutlineInnerColor, $focusOutlineOuterColor);
+	}
+}
+
+@mixin classes($textColor, $borderColor, $focusOutlineInnerColor, $focusOutlineOuterColor) {
+	.cfgButton {
+		@include styles($textColor, $borderColor, $focusOutlineInnerColor, $focusOutlineOuterColor);
+	}
+
+	.cfgButtonRow {
+		@include mixins.cfgRootStyles;
+		&__button {
+			&:nth-child(n + 2) {
+				margin-left: 1em;
+			}
+		}
+	}
+}

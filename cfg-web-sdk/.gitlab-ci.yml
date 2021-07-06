@@ -1,0 +1,70 @@
+stages:
+  - build
+  - test
+
+test:
+  stage: test
+  tags:
+    - docker
+    - linux
+  image: docker.configura.com/web/rnd/cfg-web-sdk:0.0.6
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+      - packages/debug/node_modules
+      - packages/debug-react/node_modules
+      - packages/example-app/node_modules
+      - packages/example-server/node_modules
+      - packages/babylon-view/node_modules
+      - packages/babylon-view-react/node_modules
+      - packages/web-api/node_modules
+      - packages/web-api-auth/node_modules
+      - packages/web-sdk-docs/node_modules
+      - packages/web-core/node_modules
+      - packages/web-ui/node_modules
+      - packages/web-utilities/node_modules
+  script:
+    - lerna bootstrap
+    - yarn
+    - yarn test
+
+build:
+  stage: build
+  tags:
+    - docker
+    - linux
+  image: docker.configura.com/web/rnd/cfg-web-sdk:0.0.6
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+      - packages/debug/node_modules
+      - packages/debug-react/node_modules
+      - packages/example-app/node_modules
+      - packages/example-server/node_modules
+      - packages/babylon-view/node_modules
+      - packages/babylon-view-react/node_modules
+      - packages/web-api/node_modules
+      - packages/web-api-auth/node_modules
+      - packages/web-sdk-docs/node_modules
+      - packages/web-core/node_modules
+      - packages/web-ui/node_modules
+      - packages/web-utilities/node_modules
+  artifacts:
+    paths:
+      - packages/debug/dist/
+      - packages/debug-react/dist/
+      - packages/example-app/dist/
+      - packages/babylon-view-react/dist/
+      - packages/babylon-view/dist/
+      - packages/web-api-auth/dist/
+      - packages/web-api/dist/
+      - packages/web-core/dist/
+      - packages/web-ui/dist/
+      - packages/web-utilities/dist/
+
+  script:
+    - lerna bootstrap
+    - lerna run eslint-ci
+    - lerna run build

@@ -1,0 +1,70 @@
+@use "mixins";
+
+// The origins of this SCSS file is here:
+// https://css-tricks.com/sliding-nightmare-understanding-range-input/
+
+$trackHeight: 0.2em !default;
+$thumbDiameter: 2.8em !default;
+
+@mixin track($trackColor) {
+	box-sizing: border-box;
+	border: none;
+	height: $trackHeight;
+	background: $trackColor;
+}
+
+@mixin thumb($thumbColor, $thumbShadowColor) {
+	box-sizing: border-box;
+	border: none;
+	width: $thumbDiameter;
+	height: $thumbDiameter;
+	border-radius: 50%;
+	background: $thumbColor;
+	box-shadow: 0 0.15em 0.45em 0.05em $thumbShadowColor;
+}
+
+@mixin classes($trackColor, $thumbColor, $thumbShadowColor) {
+	.cfgSlider {
+		@include mixins.cfgRootStyles;
+
+		&,
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+		}
+
+		flex: 1;
+		margin: 0;
+		padding: 0;
+		min-height: $thumbDiameter;
+		background: transparent;
+		font: inherit;
+
+		&::-webkit-slider-runnable-track {
+			@include track($trackColor);
+		}
+		&::-moz-range-track {
+			@include track($trackColor);
+		}
+		&::-ms-track {
+			@include track($trackColor);
+		}
+
+		&::-webkit-slider-thumb {
+			margin-top: 0.5 * ($trackHeight - $thumbDiameter);
+			@include thumb($thumbColor, $thumbShadowColor);
+		}
+		&::-moz-range-thumb {
+			@include thumb($thumbColor, $thumbShadowColor);
+		}
+		&::-ms-thumb {
+			margin-top: 0;
+			@include thumb($thumbColor, $thumbShadowColor);
+		}
+
+		&::-ms-tooltip {
+			display: none;
+		}
+
+		@content;
+	}
+}

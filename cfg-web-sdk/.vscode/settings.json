@@ -1,0 +1,51 @@
+{
+	"[typescript]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true,
+			"source.fixAll.eslint": true
+		}
+	},
+	"[typescriptreact]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true,
+			"source.fixAll.eslint": true
+		}
+	},
+	"editor.formatOnSave": true,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"files.eol": "\n",
+	"files.exclude": { "node_modules": true },
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"search.useIgnoreFiles": true,
+	"eslint.workingDirectories": [
+		{ "directory": "./packages/example-app", "changeProcessCWD": true },
+		{ "directory": "./packages/test-app", "changeProcessCWD": true },
+		{ "directory": "./packages/babylon-view", "changeProcessCWD": true },
+		{ "directory": "./packages/babylon-view-react", "changeProcessCWD": true },
+		{ "directory": "./packages/web-sdk-docs", "changeProcessCWD": true },
+		{ "directory": "./packages/web-ui", "changeProcessCWD": true }
+	],
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#1f6fd0",
+		"activityBar.activeBorder": "#ee90bb",
+		"activityBar.background": "#1f6fd0",
+		"activityBar.foreground": "#e7e7e7",
+		"activityBar.inactiveForeground": "#e7e7e799",
+		"activityBarBadge.background": "#ee90bb",
+		"activityBarBadge.foreground": "#15202b",
+		"statusBar.background": "#1857a4",
+		"statusBar.foreground": "#e7e7e7",
+		"statusBarItem.hoverBackground": "#1f6fd0",
+		"titleBar.activeBackground": "#1857a4",
+		"titleBar.activeForeground": "#e7e7e7",
+		"titleBar.inactiveBackground": "#1857a499",
+		"titleBar.inactiveForeground": "#e7e7e799"
+	},
+	"peacock.color": "#1857a4"
+}

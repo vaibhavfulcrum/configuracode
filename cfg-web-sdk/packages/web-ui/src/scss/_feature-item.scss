@@ -1,0 +1,123 @@
+/**
+ * Web UI Feature item
+ */
+
+@use "mixins";
+
+@mixin classes(
+	$textColor,
+	$checkButtonUncheckedColor,
+	$checkButtonCheckedColor,
+	$focusOutlineInnerColor,
+	$focusOutlineOuterColor
+) {
+	.cfgThumbnailImage {
+		border-radius: 0.7em;
+		display: inline-block;
+		height: 2.7em;
+		width: 2.7em;
+	}
+
+	.cfgThumbnailPlaceholder {
+		align-items: center;
+		display: flex;
+		flex: 0 0 4.2em;
+		justify-content: flex-start;
+	}
+
+	.cfgFeatureItem {
+		@include mixins.cfgRootStyles;
+
+		color: $textColor;
+
+		&__dropdown {
+			@include mixins.noButtonLook;
+			align-items: stretch;
+			display: flex;
+			height: 3.9em;
+			outline: 0;
+			position: relative;
+			width: 100%;
+			cursor: pointer;
+		}
+
+		&--optional {
+			margin-top: 1em;
+		}
+
+		&__hiddenInput {
+			left: -99999px;
+			opacity: 0;
+			position: absolute;
+			z-index: -1;
+		}
+
+		&__radio,
+		&__checkbox {
+			align-items: center;
+			border: 0.2em solid $checkButtonUncheckedColor;
+			display: flex;
+			flex: 0 0 auto;
+			height: 2.2em;
+			justify-content: center;
+			pointer-events: none;
+			user-select: none;
+			width: 2.2em;
+		}
+
+		&__radio {
+			border-radius: 50%;
+		}
+
+		&__checkbox {
+			border-radius: 0.3em;
+		}
+
+		/* The &-syntax brings in the entire path, so the second part of this rule must be explicit */
+
+		&__hiddenInput:focus ~ .cfgFeatureItem__radio,
+		&__hiddenInput:focus ~ .cfgFeatureItem__checkbox {
+			@include mixins.focusOutline($focusOutlineInnerColor, $focusOutlineOuterColor);
+		}
+
+		&__hiddenInput:checked ~ .cfgFeatureItem__radio,
+		&__hiddenInput:checked ~ .cfgFeatureItem__checkbox {
+			border-color: $checkButtonCheckedColor;
+		}
+	}
+
+	.cfgFeatureItemOptional__titleWrapper,
+	.cfgFeatureItemOption__titleWrapper {
+		flex: 1 1 auto;
+		margin-left: 1em;
+	}
+
+	.cfgFeatureItemOptional__title,
+	.cfgFeatureItemOption__title {
+		font-size: 1.5em;
+	}
+
+	.cfgOptionTree--subLevel .cfgFeatureItem__hr {
+		display: none;
+	}
+
+	.cfgFeatureItemOption {
+		align-items: center;
+		display: flex;
+	}
+
+	.cfgFeatureItemOptional {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		margin-top: 0.5em;
+
+		&__header {
+			font-size: 1.2em;
+			font-weight: 600;
+			margin: 0 0 0.3em 0;
+			padding: 0;
+			text-transform: uppercase;
+		}
+	}
+}

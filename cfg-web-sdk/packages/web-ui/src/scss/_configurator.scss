@@ -1,0 +1,67 @@
+/**
+ * Web UI Configurator
+ */
+
+@use "mixins";
+
+@mixin classes($fontSize, $textColor, $headerUnderlineColor) {
+	.cfgConfigurator {
+		@include mixins.cfgRootStyles;
+		@include mixins.cfgDefaultFont;
+		font-size: $fontSize;
+		color: $textColor;
+		min-width: 0;
+	}
+
+	.cfgConfiguratorHeader {
+		border-bottom: 0.1em solid $headerUnderlineColor;
+		padding: 1.7em 1.7em 1.9em;
+		position: relative;
+
+		&__actions {
+			margin-top: 1em;
+		}
+	}
+
+	.cfgConfiguratorTree {
+		padding-top: 1em;
+	}
+
+	.cfgCanvasWrapper {
+		@include mixins.cfgRootStyles;
+		position: relative;
+		height: 50rem;
+		user-select: none;
+
+		& canvas {
+			outline: none;
+		}
+	}
+
+	.cfgConfiguratorWrapper {
+		@include mixins.cfgRootStyles;
+		color: $textColor;
+		height: 100%;
+		width: 100%;
+	}
+
+	@media screen and (orientation: landscape) {
+		.cfgConfiguratorWrapper {
+			display: flex;
+			flex-direction: row;
+
+			& > .cfgConfigurator {
+				flex: 0 1 40%;
+				height: 100%;
+			}
+
+			& .cfgCanvasWrapper {
+				flex: 0 1 60%;
+				height: 85vh;
+				overflow: hidden;
+				position: sticky;
+				top: 0;
+			}
+		}
+	}
+}
